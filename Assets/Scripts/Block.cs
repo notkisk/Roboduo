@@ -10,6 +10,7 @@ public class Block : MonoBehaviour
     private Rigidbody2D _rb;
     public float yOffset;
     public GameObject landEffect;
+    GameObject _geralt;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Block : MonoBehaviour
 
     private void Update()
     {
+        _geralt = GameObject.FindGameObjectWithTag("Geralt");
         if (Grounded())
         {
             if (_rb.bodyType != RigidbodyType2D.Static)
@@ -58,18 +60,33 @@ public class Block : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Robo"))
-        {
-            _rb.bodyType = RigidbodyType2D.Static;
-            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
         if (collider.gameObject.CompareTag("Elevator"))
         {
             this.transform.parent = collider.transform;
         }
+       
+        if (collider.gameObject.CompareTag("Robo"))
+        {
+            if (_geralt!=null)
+            {
+                if (Vector2.Distance(this.transform.position,_geralt.transform.position)> 1.5f)
+                {
+                    _rb.bodyType = RigidbodyType2D.Static;
+                    _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                }
+            }
+            
+        }
+    
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
+        if (collider.gameObject.CompareTag("Elevator"))
+        {
+            this.transform.parent = null;
+
+        }
+       
         if (collider.gameObject.CompareTag("Robo"))
         {
             _rb.bodyType = RigidbodyType2D.Dynamic;
@@ -77,11 +94,7 @@ public class Block : MonoBehaviour
             _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         }
-        if (collider.gameObject.CompareTag("Elevator"))
-        {
-            this.transform.parent = null;
-
-        }
+     
     }
 
     bool Grounded()

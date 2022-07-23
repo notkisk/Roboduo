@@ -19,16 +19,17 @@ public class Gate : MonoBehaviour
         startingPosition = transform.position;
     }
     public void Open() {
-       
-        if (y)
+
+        if (transform.position.y <= startingPosition.y + moveAmount)
         {
-            if (transform.position.y <= startingPosition.y+moveAmount)
+            if (y)
             {
-                transform.DOMoveY(transform.position.y + moveAmount, openSpeed).SetEase(easeType);
+           
+                transform.DOMoveY(startingPosition.y + moveAmount, openSpeed).SetEase(easeType);
 
             }
         }
-        else if (x)
+         if (x)
         {
              transform.DOMoveY(transform.position.x + moveAmount, openSpeed).SetEase(easeType);
         }

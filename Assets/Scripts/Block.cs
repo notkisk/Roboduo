@@ -24,25 +24,35 @@ public class Block : MonoBehaviour
     private void Update()
     {
         _geralt = GameObject.FindGameObjectWithTag("Geralt");
-        if (Grounded())
-        {
-            if (_rb.bodyType != RigidbodyType2D.Static)
-            {
-                _rb.velocity = new Vector2(_rb.velocity.x, 0f);
+        //if (Grounded())
+        //{
+        //    if (_rb.bodyType != RigidbodyType2D.Static)
+        //    {
+        //        _rb.velocity = new Vector2(_rb.velocity.x, 0f);
 
-            }
+        //    }
 
-        }
-        else
+        //}
+        //else
+        //{
+        //    if (_rb.bodyType != RigidbodyType2D.Static)
+        //    {
+        //        if (_rb.velocity.y < 0f)
+        //        {
+        //            _rb.velocity = new Vector2(0f, _rb.velocity.y);
+        //        }
+        //    }
+
+        //}
+        if (Vector2.Distance(this.transform.position,_geralt.transform.position)>1.5f)
         {
-            if (_rb.bodyType != RigidbodyType2D.Static)
+            if (!Grounded())
             {
-                if (_rb.velocity.y < 0f)
+                if (_rb.velocity.y < 1f)
                 {
                     _rb.velocity = new Vector2(0f, _rb.velocity.y);
                 }
             }
-        
         }
        
             if (!isGroundedLastFrame)
@@ -69,7 +79,7 @@ public class Block : MonoBehaviour
         {
             if (_geralt!=null)
             {
-                if (Vector2.Distance(this.transform.position,_geralt.transform.position)> 1.5f)
+                if (Vector2.Distance(this.transform.position,_geralt.transform.position)> 0.75f)
                 {
                     _rb.bodyType = RigidbodyType2D.Static;
                     _rb.constraints = RigidbodyConstraints2D.FreezeAll;

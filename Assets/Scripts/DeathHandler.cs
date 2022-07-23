@@ -43,4 +43,12 @@ public class DeathHandler : MonoBehaviour
         return Physics2D.Linecast(lineStart, lineEnd, whatIsBlock);
 
     }
+
+    private void OnDrawGizmos()
+    {
+        Vector2 lineStart = new Vector2(headPosition.position.x, headPosition.position.y);
+        Vector2 lineEnd = new Vector2(lineStart.x, lineStart.y + headCheckLength);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(lineStart, lineEnd);
+    }
 }

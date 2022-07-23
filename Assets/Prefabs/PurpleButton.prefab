@@ -136,4 +136,4 @@ MonoBehaviour:
   - {fileID: -800903772, guid: eeb12cff2cd7b9c4d9595d1dcaa3c554, type: 3}
   gates:
   - {fileID: 0}
-  triggerMinDistance: 1
+  triggerMinDistance: 1.33

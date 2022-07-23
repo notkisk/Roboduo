@@ -35,7 +35,6 @@ public class FinalDestination : MonoBehaviour
         else
         {
             downArrowKey.SetActive(false);
-
         }
      
 

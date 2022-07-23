@@ -69,6 +69,14 @@ public class InGameButton : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            _myRenderer.sprite = sprites[0];
+            foreach (var gate in gates)
+            {
+                gate.Close();
+            }
+        }
         //else if (_ _geralt == null)
         //{
         //    if (Vector2.Distance(this.transform.position, _robo.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _blocks.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _Eblock.transform.position) > triggerMinDistance)
@@ -80,15 +88,8 @@ public class InGameButton : MonoBehaviour
         //        }
         //    }
         //}
-        else 
-        {
-            _myRenderer.sprite = sprites[0];
-            foreach (var gate in gates)
-            {
-                gate.Close();
-            }
-        }
-       
+
+
         //else if (Vector2.Distance(this.transform.position, _robo.position) < triggerMinDistance || Vector2.Distance(this.transform.position, _geralt.position) < triggerMinDistance)
         //{
         //    _myRenderer.sprite = sprites[1];

@@ -433,7 +433,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_15
+      name: Disabled
       rect:
         serializedVersion: 2
         x: 48
@@ -655,8 +655,7 @@ TextureImporter:
     nameFileIdTable:
       Sprite-0001_21: 1815869762
       Sprite-0001_23: -1027924280
-      Sprite-0001_19: -1532883662
-      Sprite-0001_22: -518418228
+      Sprite-0001_14: 33167829
       Sprite-0001_6: -928662065
       Sprite-0001_5: -41607081
       Sprite-0001_9: -1923719588
@@ -675,9 +674,10 @@ TextureImporter:
       Sprite-0001_10: 1418953994
       Sprite-0001_2: 642863764
       Sprite-0001_13: 1587995207
+      Disabled: -1813788814
       Sprite-0001_18: -1803272948
-      Sprite-0001_14: 33167829
-      Sprite-0001_15: -1813788814
+      Sprite-0001_22: -518418228
+      Sprite-0001_19: -1532883662
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

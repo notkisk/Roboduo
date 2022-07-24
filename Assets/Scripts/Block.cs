@@ -74,20 +74,19 @@ public class Block : MonoBehaviour
         {
             this.transform.parent = collider.transform;
         }
-       
         if (collider.gameObject.CompareTag("Robo"))
         {
-            if (_geralt!=null)
+            if (_geralt != null)
             {
-                if (Vector2.Distance(this.transform.position,_geralt.transform.position)> 0.75f)
+                if (Vector2.Distance(this.transform.position, _geralt.transform.position) > 0.75f)
                 {
-                    _rb.bodyType = RigidbodyType2D.Static;
-                    _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    _rb.mass = 1800f;
                 }
             }
-            
+
         }
-    
+
+
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
@@ -99,12 +98,11 @@ public class Block : MonoBehaviour
        
         if (collider.gameObject.CompareTag("Robo"))
         {
-            _rb.bodyType = RigidbodyType2D.Dynamic;
+            _rb.mass = 18f;
 
-            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         }
-     
+
     }
 
     bool Grounded()

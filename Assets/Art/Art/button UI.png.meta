@@ -3079,7 +3079,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button UI_141
+      name: Main menu
       rect:
         serializedVersion: 2
         x: 160
@@ -3198,8 +3198,8 @@ TextureImporter:
       button UI_127: 2113963831
       button UI_40: 1975532835
       button UI_21: -1757834393
-      button UI_85: 1583335575
       button UI_29: 1539016847
+      button UI_85: 1583335575
       button UI_16: -41421827
       button UI_60: -815153091
       button UI_87: -1913295468
@@ -3226,6 +3226,7 @@ TextureImporter:
       button UI_125: 781891402
       button UI_124: 84255435
       button UI_9: -1830504903
+      Main menu: -345684522
       button UI_78: 1048366787
       button UI_132: 721451703
       button UI_45: 995729632
@@ -3242,7 +3243,6 @@ TextureImporter:
       button UI_103: -214025827
       button UI_30: 2074963963
       button UI_34: -2019105861
-      button UI_141: -345684522
       button UI_52: 1494201696
       button UI_74: -686221141
       button UI_88: -308555241

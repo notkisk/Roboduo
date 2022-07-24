@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class FinalDestination : MonoBehaviour
 {
     public float minDistance;
@@ -7,10 +8,13 @@ public class FinalDestination : MonoBehaviour
     bool hasWon;
     public GameObject confetti;
     public GameObject downArrowKey;
+
+    int nextSceneLoad;
     // Start is called before the first frame update
     void Start()
     {
         hasWon = false;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     // Update is called once per frame
@@ -29,6 +33,20 @@ public class FinalDestination : MonoBehaviour
 
                     Instantiate(confetti, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f), Quaternion.identity);
                     StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+                    if (SceneManager.GetActiveScene().buildIndex == 18)
+                    {
+                        StartCoroutine(FindObjectOfType<SceneController>().LoadScene(2f,0));
+                    }
+                    else
+                    {
+
+                        if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+                        {
+                            PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+                        }
+
+                    }
+
                 }
 
                 if (Vector2.Distance(this.transform.position, _robo.transform.position) <= minDistance || Vector2.Distance(this.transform.position, _geralt.transform.position) <= minDistance)
@@ -51,6 +69,19 @@ public class FinalDestination : MonoBehaviour
 
                 Instantiate(confetti, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f), Quaternion.identity);
                 StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+                if (SceneManager.GetActiveScene().buildIndex == 18)
+                {
+                    StartCoroutine(FindObjectOfType<SceneController>().LoadScene(2f, 0));
+                }
+                else
+                {
+
+                    if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+                    {
+                        PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+                    }
+
+                }
             }
 
             if (Vector2.Distance(this.transform.position, _robo.transform.position) <= minDistance || Vector2.Distance(this.transform.position, _geralt.transform.position) <= minDistance)

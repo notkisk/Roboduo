@@ -764,7 +764,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 18
-      m_TileSpriteIndex: 18
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -1004,7 +1004,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -1204,7 +1204,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 21
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -1284,7 +1284,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -1364,7 +1364,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -1374,7 +1374,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -1435,30 +1435,30 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1685199984, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1561281708, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 15
     m_Data: {fileID: -118943787, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1238026792, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
+    m_Data: {fileID: -1685199984, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 2127102977, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 497369472, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1864246455, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
+    m_Data: {fileID: 1561281708, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1970790903, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: -1847299848, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -506947868, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 1157575041, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
+    m_Data: {fileID: 1238026792, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1864246455, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -710272926, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 3
@@ -1468,11 +1468,11 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -101990313, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -2033883306, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
+    m_Data: {fileID: 1157575041, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 26
     m_Data: {fileID: 455039887, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -2033883306, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1351336002, guid: 396ed60a5c43a774eab2a13293012bd1, type: 3}
   - m_RefCount: 13
@@ -1747,7 +1747,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.25
+  orthographic size: 8.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1791,8 +1791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 200
+  m_RefResolutionY: 200
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0
@@ -3662,7 +3662,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: -28

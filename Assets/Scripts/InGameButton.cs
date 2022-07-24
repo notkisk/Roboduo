@@ -58,25 +58,25 @@ public class InGameButton : MonoBehaviour
                 }
             }
         }
-        else if( _geralt!=null)
-        {
-            if ( Vector2.Distance(this.transform.position, _geralt.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _blocks.transform.position) > triggerMinDistance&& Vector2.Distance(this.transform.position, _Eblock.transform.position) > triggerMinDistance)
-            {
-                _myRenderer.sprite = sprites[0];
-                foreach (var gate in gates)
-                {
-                    gate.Close();
-                }
-            }
-        }
-        else
-        {
-            _myRenderer.sprite = sprites[0];
-            foreach (var gate in gates)
-            {
-                gate.Close();
-            }
-        }
+        //else if( _geralt!=null)
+        //{
+        //    if ( Vector2.Distance(this.transform.position, _geralt.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _blocks.transform.position) > triggerMinDistance&& Vector2.Distance(this.transform.position, _Eblock.transform.position) > triggerMinDistance)
+        //    {
+        //        _myRenderer.sprite = sprites[0];
+        //        foreach (var gate in gates)
+        //        {
+        //            gate.Close();
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    _myRenderer.sprite = sprites[0];
+        //    foreach (var gate in gates)
+        //    {
+        //        gate.Close();
+        //    }
+        //}
         //else if (_ _geralt == null)
         //{
         //    if (Vector2.Distance(this.transform.position, _robo.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _blocks.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _Eblock.transform.position) > triggerMinDistance)
@@ -104,7 +104,7 @@ public class InGameButton : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (/*collision.gameObject.CompareTag("Robo") ||*/ collision.gameObject.CompareTag("Geralt")||collision.gameObject.CompareTag("Block")||collision.gameObject.CompareTag("ElectricityBlock"))
+        if ( collision.gameObject.CompareTag("Geralt")||collision.gameObject.CompareTag("Block")||collision.gameObject.CompareTag("ElectricityBlock"))
         {
             _myRenderer.sprite = sprites[1];
             foreach (var gate in gates)

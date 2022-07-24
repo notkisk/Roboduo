@@ -18,24 +18,51 @@ public class FinalDestination : MonoBehaviour
     {
         _robo = GameObject.FindGameObjectWithTag("Robo");
         _geralt = GameObject.FindGameObjectWithTag("Geralt");
-        if (_robo == null && _geralt == null && !hasWon)
+        if (GameObject.Find("key")!=null)
         {
-            hasWon = true;
-            FindObjectOfType<AudioManager>().Play("Victory");
+            if (FindObjectOfType<KeyLockSystem>().isTriggerd)
+            {
+                if (_robo == null && _geralt == null && !hasWon)
+                {
+                    hasWon = true;
+                    FindObjectOfType<AudioManager>().Play("Victory");
 
-            Instantiate(confetti, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f), Quaternion.identity);
-            StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
-            return;
-        }
+                    Instantiate(confetti, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f), Quaternion.identity);
+                    StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+                }
 
-        if (Vector2.Distance(this.transform.position,_robo.transform.position)<=minDistance||Vector2.Distance(this.transform.position,_geralt.transform.position)<=minDistance)
-        {
-            downArrowKey.SetActive(true);
+                if (Vector2.Distance(this.transform.position, _robo.transform.position) <= minDistance || Vector2.Distance(this.transform.position, _geralt.transform.position) <= minDistance)
+                {
+                    downArrowKey.SetActive(true);
+                }
+                else
+                {
+                    downArrowKey.SetActive(false);
+                }
+            }
+
         }
         else
         {
-            downArrowKey.SetActive(false);
+            if (_robo == null && _geralt == null && !hasWon)
+            {
+                hasWon = true;
+                FindObjectOfType<AudioManager>().Play("Victory");
+
+                Instantiate(confetti, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f), Quaternion.identity);
+                StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+            }
+
+            if (Vector2.Distance(this.transform.position, _robo.transform.position) <= minDistance || Vector2.Distance(this.transform.position, _geralt.transform.position) <= minDistance)
+            {
+                downArrowKey.SetActive(true);
+            }
+            else
+            {
+                downArrowKey.SetActive(false);
+            }
         }
+       
      
 
         ////if (_robo == null || _geralt == null && !hasReloaded)

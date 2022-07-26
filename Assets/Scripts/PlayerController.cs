@@ -4,7 +4,7 @@ using DG.Tweening;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    private Rigidbody2D _rb;
+    [HideInInspector]public Rigidbody2D _rb;
     public float maxMoveSpeed;
     public float _acceleration, _deacceleration;
     public Ease easeType = Ease.Linear;

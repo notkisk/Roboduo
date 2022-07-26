@@ -12,7 +12,6 @@ public class Excutioner : MonoBehaviour
         if (collision.gameObject.CompareTag("Robo"))
         {
             StartCoroutine(FindObjectOfType<SceneController>().ReloadScene(1f, 1f));
-
             FindObjectOfType<AudioManager>().Play("RoboDeath");
             Instantiate(deathFX, collision.transform.position, Quaternion.identity);
             //collision.transform.parent.DOScale(Vector3.zero, 0.2f).OnComplete(() => Destroy(collision.transform.root.gameObject));

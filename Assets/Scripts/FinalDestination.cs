@@ -10,6 +10,8 @@ public class FinalDestination : MonoBehaviour
     public GameObject downArrowKey;
 
     int nextSceneLoad;
+    private bool hasReloaded=false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,12 @@ public class FinalDestination : MonoBehaviour
     {
         _robo = GameObject.FindGameObjectWithTag("Robo");
         _geralt = GameObject.FindGameObjectWithTag("Geralt");
+        //if (_robo == null || _geralt == null && !hasReloaded && FindObjectOfType<FinishingTheLevel>().stupedWayToKnowIfWeWon < 1)
+        //{
+        //    hasReloaded = true;
+        //    StartCoroutine(FindObjectOfType<SceneController>().ReloadScene(1f, 0.5f));
+        //    return;
+        //}
         if (GameObject.Find("key")!=null)
         {
             if (FindObjectOfType<KeyLockSystem>().isTriggerd)
@@ -84,6 +92,8 @@ public class FinalDestination : MonoBehaviour
                 }
             }
 
+            if (_robo == null || _geralt == null && FindObjectOfType<FinishingTheLevel>().stupedWayToKnowIfWeWon < 1) return;
+
             if (Vector2.Distance(this.transform.position, _robo.transform.position) <= minDistance || Vector2.Distance(this.transform.position, _geralt.transform.position) <= minDistance)
             {
                 downArrowKey.SetActive(true);
@@ -92,58 +102,10 @@ public class FinalDestination : MonoBehaviour
             {
                 downArrowKey.SetActive(false);
             }
+
+          
+
         }
-       
-     
-
-        ////if (_robo == null || _geralt == null && !hasReloaded)
-        ////{
-        ////    hasReloaded = true;
-        ////    StartCoroutine(FindObjectOfType<SceneController>().ReloadScene(1f, 0.5f));
-        ////}
-        //if (_robo != null)
-        //{
-        //    if (Vector2.Distance(this.transform.position, _geralt.transform.position) < minDistance)
-        //    {
-        //        if (Input.GetKeyDown(KeyCode.DownArrow))
-        //        {
-        //            //downArrow.SetActive(true);
-        //            if (FindObjectOfType<PlayerSwitchController>().geraltController.isActiveAndEnabled)
-        //            {
-        //                FindObjectOfType<AudioManager>().Play("Switch");
-        //                FindObjectOfType<PlayerSwitchController>().geraltController.Disable();
-        //                FindObjectOfType<PlayerSwitchController>().roboController.Enable();
-        //            }
-
-        //            _geralt.transform.DOMove(this.transform.position, 0.5f);
-        //            _geralt.transform.DOScale(Vector3.zero, 0.5f).OnComplete(() => Destroy(_geralt.transform.root.gameObject));
-
-        //        }
-        //    }
-
-        //}
-        //else if (_geralt != null)
-        //{
-        //    if (Vector2.Distance(this.transform.position, _robo.transform.position) < minDistance)
-        //    {
-        //        if (Input.GetKeyDown(KeyCode.DownArrow))
-        //        {
-        //            //downArrow.SetActive(true);
-        //            if (FindObjectOfType<PlayerSwitchController>().roboController.isActiveAndEnabled)
-        //            {
-        //                FindObjectOfType<AudioManager>().Play("Switch");
-        //                FindObjectOfType<PlayerSwitchController>().geraltController.Enable();
-        //                FindObjectOfType<PlayerSwitchController>().roboController.Disable();
-        //            }
-
-        //            _robo.transform.DOMove(this.transform.position, 0.5f);
-        //            _robo.transform.DOScale(Vector3.zero, 0.5f).OnComplete(() => Destroy(_robo.transform.root.gameObject));
-
-        //        }
-        //    }
-        //}
-
-
 
 
     }
@@ -180,4 +142,10 @@ public class FinalDestination : MonoBehaviour
 
     //    }
     //}
+
+    public void ReloadSceneTrick()
+    {
+
+      StartCoroutine ( FindObjectOfType<SceneController>().ReloadScene(1f,1f));
+    }
 }

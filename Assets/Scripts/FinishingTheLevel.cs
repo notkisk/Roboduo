@@ -7,15 +7,15 @@ public class FinishingTheLevel : MonoBehaviour
 {
     public PlayerController myController;
     GameObject finishDoor;
-    int stupedWayToKnowIfWeWon;
+    [HideInInspector]public int stupedWayToKnowIfWeWon;
 
-
+    int tester=0;
     // Start is called before the first frame update
     void Start()
     {
         stupedWayToKnowIfWeWon = 0;
         finishDoor = GameObject.FindGameObjectWithTag("Finish");
-        
+        myController.transform.root.gameObject.GetComponent<DeathHandler>().PlayerDied += ReloadScene;
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class FinishingTheLevel : MonoBehaviour
     {
         GameObject _robo = GameObject.Find("Robo");
         GameObject _geralt = GameObject.Find("Geralt");
+      
 
         if (GameObject.Find("key") !=null)
         {
@@ -34,6 +35,8 @@ public class FinishingTheLevel : MonoBehaviour
                     {
                         if (FindObjectOfType<PlayerSwitchController>().activePlayer == myController)
                         {
+                            //stupedWayToKnowIfWeWon++;
+                            tester++;
                             FindObjectOfType<AudioManager>().Play("Finish");
                             if (this.gameObject.CompareTag("Robo"))
                             {
@@ -59,10 +62,8 @@ public class FinishingTheLevel : MonoBehaviour
                                 transform.DOScale(Vector3.zero, 0.25f).OnComplete(() => Destroy(gameObject));
                                 transform.DOMove(finishDoor.transform.position, 0.5f);
                             }
-                            stupedWayToKnowIfWeWon++;
 
-                        }
-
+                        } 
                     }
                 }
             }
@@ -75,6 +76,8 @@ public class FinishingTheLevel : MonoBehaviour
                 {
                     if (FindObjectOfType<PlayerSwitchController>().activePlayer == myController)
                     {
+                        tester++;
+
                         FindObjectOfType<AudioManager>().Play("Finish");
                         if (this.gameObject.CompareTag("Robo"))
                         {
@@ -100,7 +103,7 @@ public class FinishingTheLevel : MonoBehaviour
                             transform.DOScale(Vector3.zero, 0.25f).OnComplete(() => Destroy(gameObject));
                             transform.DOMove(finishDoor.transform.position, 0.5f);
                         }
-                        stupedWayToKnowIfWeWon++;
+                        //stupedWayToKnowIfWeWon++;
 
                     }
 
@@ -112,6 +115,10 @@ public class FinishingTheLevel : MonoBehaviour
         
     }
 
-   
-   
+   void ReloadScene()
+    {
+        Debug.Log("Reload");
+        StartCoroutine(FindObjectOfType<SceneController>().ReloadScene(1f,1f));
+    }
+
 }

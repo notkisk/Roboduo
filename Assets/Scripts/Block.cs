@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public LayerMask whatIsPlayer;
     public LayerMask whatIsGrounde;
     public float groundCheckLineLength;
     public float groundCheckLineGap;
@@ -24,6 +25,10 @@ public class Block : MonoBehaviour
     private void Update()
     {
         _geralt = GameObject.FindGameObjectWithTag("Geralt");
+        //if (isPlayerUnder())
+        //{
+        //    Kill();
+        //}
         //if (Grounded())
         //{
         //    if (_rb.bodyType != RigidbodyType2D.Static)
@@ -44,16 +49,20 @@ public class Block : MonoBehaviour
         //    }
 
         //}
-        if (Vector2.Distance(this.transform.position,_geralt.transform.position)>1.5f)
+        if (_geralt!=null)
         {
-            if (!Grounded())
+            if (Vector2.Distance(this.transform.position, _geralt.transform.position) > 1.5f)
             {
-                if (_rb.velocity.y < 1f)
+                if (!Grounded())
                 {
-                    _rb.velocity = new Vector2(0f, _rb.velocity.y);
+                    if (_rb.velocity.y < 1f)
+                    {
+                        _rb.velocity = new Vector2(0f, _rb.velocity.y);
+                    }
                 }
             }
         }
+     
        
             if (!isGroundedLastFrame)
             {
@@ -112,6 +121,21 @@ public class Block : MonoBehaviour
 
         return Physics2D.Linecast(lineStart, lineEnd, whatIsGrounde);
 
+    }
+
+    bool isPlayerUnder()
+    {
+        Vector2 lineStart = new Vector2(bottomPoint.position.x, bottomPoint.position.y + groundCheckLineGap);
+        Vector2 lineEnd = new Vector2(lineStart.x, lineStart.y + groundCheckLineLength);
+
+        return Physics2D.Linecast(lineStart, lineEnd, whatIsPlayer);
+
+
+    }
+
+    void Kill()
+    {
+        StartCoroutine(FindObjectOfType<SceneController>().ReloadScene(1f, 1f));
     }
 
     private void OnDrawGizmos()

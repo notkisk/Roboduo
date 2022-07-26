@@ -8,10 +8,12 @@ public class PushingBlocks : MonoBehaviour
     public float blockChecklineLength;
     public float blockCheckGap;
 
-
+    public AudioClip pushingClip;
     bool isBlockAhead;
 
     PlayerController _myController;
+
+    bool isPlaying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +28,27 @@ public class PushingBlocks : MonoBehaviour
 
         if (isBlockAhead && !Mathf.Approximately(_myController._horizontalInput,0f))
         {
-            _anim.SetBool("isPushing",true);
+            if (!isPlaying)
+            {
+                if (!Mathf.Approximately(Mathf.Abs (_myController._rb.velocity.x),0.25f))
+                {
+                    InvokeRepeating("PlayPushingLoop", 0f, pushingClip.length);
+                    isPlaying = true;
+                }
+
+            }
+            _anim.SetBool("isPushing", true);
+
         }
         else
         {
+            FindObjectOfType<AudioManager>().StopPlaying("Pushing");
+            isPlaying = false;
             _anim.SetBool("isPushing", false);
-
+            if (IsInvoking())
+            {
+                CancelInvoke();
+            }
         }
     }
 
@@ -48,5 +65,12 @@ public class PushingBlocks : MonoBehaviour
         Vector2 lineEnd = new Vector2(lineStart.x + blockChecklineLength, lineStart.y);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(lineStart,lineEnd);
+    }
+
+    void PlayPushingLoop()
+    {
+
+        FindObjectOfType<AudioManager>().Play("Pushing");
+
     }
 }

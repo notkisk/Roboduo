@@ -343,6 +343,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5863727135820408526, guid: 236ac98880646ec4b8ccdbac4aba1e24, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6493025538144973747, guid: 236ac98880646ec4b8ccdbac4aba1e24, type: 3}
       propertyPath: elevateAmount
       value: 4
@@ -1942,7 +1946,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
@@ -2487,11 +2491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 985978162509657986, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2749729
+      value: 1.005
       objectReference: {fileID: 0}
     - target: {fileID: 985978162509657986, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.496
+      value: -3.487
       objectReference: {fileID: 0}
     - target: {fileID: 985978162509657986, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4361,6 +4365,12 @@ MonoBehaviour:
     volume: 0.55
     pitch: 0.5
     loop: 0
+  - name: Pushing
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: ecca472a716ee1a43854eea23a90de7b, type: 3}
+    volume: 0.55
+    pitch: 1
+    loop: 0
   _mixer: {fileID: 24100000, guid: 5824db53f75aa334299aef6bd51e6869, type: 2}
   sfxGroup: {fileID: 379933412094178736, guid: 5824db53f75aa334299aef6bd51e6869, type: 2}
 --- !u!4 &1534166771
@@ -5328,6 +5338,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3583981649457923702, guid: c8823fa2949566c4195d629cf2fce91f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3583981649457923703, guid: c8823fa2949566c4195d629cf2fce91f, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -5616,6 +5630,14 @@ PrefabInstance:
     - target: {fileID: 9047848736314651738, guid: 5a6336e7a7e2df14faa31f46b23da9d9, type: 3}
       propertyPath: isElectricityLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047848736314651739, guid: 5a6336e7a7e2df14faa31f46b23da9d9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047848736314651739, guid: 5a6336e7a7e2df14faa31f46b23da9d9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

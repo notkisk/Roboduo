@@ -82,6 +82,7 @@ public class PlayerSwitchController : MonoBehaviour
 
             }
         }
+      
         //if (activePlayer==null)
         //{
         //    if (GameObject.Find("Robo")==null)
@@ -111,7 +112,7 @@ public class PlayerSwitchController : MonoBehaviour
 
         //    }
         //}
-           
-        
+
+
     }
 }

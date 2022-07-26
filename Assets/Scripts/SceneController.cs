@@ -43,7 +43,7 @@ public class SceneController : MonoBehaviour
     }
     public IEnumerator ReloadScene(float InAnimationDelay,float delay)
     {
-        //Debug.Log("reload Scene");
+        Debug.Log("Reload Scene");
         yield return new WaitForSeconds(InAnimationDelay);
         ScaleUp();
         yield return new WaitForSeconds(delay);
@@ -52,7 +52,7 @@ public class SceneController : MonoBehaviour
 
     public IEnumerator LoadNextScene(float InAnimationDelay, float delay)
     {
-        //Debug.Log("LoadNextScene");
+        Debug.Log("LoadNextScene");
         yield return new WaitForSeconds(InAnimationDelay);
         ScaleUp();
         yield return new WaitForSeconds(delay);
@@ -61,6 +61,8 @@ public class SceneController : MonoBehaviour
     }
     public IEnumerator LoadScene(float delay,int index)
     {
+        Debug.Log("Load Scene");
+
         ScaleUp();
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(index);

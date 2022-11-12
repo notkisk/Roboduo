@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
     public GameObject _sprite;
     Vector3 startingSize;
-
 
     private void Awake()
     {
@@ -37,13 +35,13 @@ public class SceneController : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex!=0)
             {
                 StartCoroutine(LoadScene(1f, 0));
+
             }
         }
 
     }
     public IEnumerator ReloadScene(float InAnimationDelay,float delay)
     {
-        Debug.Log("Reload Scene");
         yield return new WaitForSeconds(InAnimationDelay);
         ScaleUp();
         yield return new WaitForSeconds(delay);
@@ -52,20 +50,25 @@ public class SceneController : MonoBehaviour
 
     public IEnumerator LoadNextScene(float InAnimationDelay, float delay)
     {
-        Debug.Log("LoadNextScene");
+
         yield return new WaitForSeconds(InAnimationDelay);
         ScaleUp();
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+       
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log(SceneManager.GetActiveScene().buildIndex);
+        
+    
+
 
     }
     public IEnumerator LoadScene(float delay,int index)
     {
-        Debug.Log("Load Scene");
 
         ScaleUp();
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(index);
+   
 
     }
 
@@ -79,6 +82,6 @@ public class SceneController : MonoBehaviour
         StartCoroutine(ReloadScene(inAnimation,delay));
     }
 
-    public void LoadSceneUI(int index) { StartCoroutine(LoadScene(1f, index)); }
-    public void ReloadSceneUI() { StartCoroutine(ReloadScene(0f, 1f)); }
+    public void LoadSceneUI(int index) {  StartCoroutine(LoadScene(1f, index)); }
+    public void ReloadSceneUI() {StartCoroutine(ReloadScene(0f, 1f)); }
 }

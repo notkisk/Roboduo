@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2971245787591840450}
   - component: {fileID: 2971245787591840451}
   - component: {fileID: 2971245787591840448}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PurpleGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,9 +10,9 @@ public class Elevator : MonoBehaviour
     public bool x, y;
     public AudioClip _elevatorSfx;
     public float delay;
+
     public void Elevate()
     {
-
         //Debug.Log("elevating");
         if (y)
         {

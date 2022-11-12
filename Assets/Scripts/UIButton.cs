@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+//using System.Runtime.InteropServices;
 //[RequireComponent(typeof (AudioSource))]
 public class UIButton : MonoBehaviour
 {
@@ -15,6 +16,52 @@ public class UIButton : MonoBehaviour
     public float duration;
 
     bool isActive = false;
+
+
+    //// Import the javascript function that redirects to another URL
+    //[
+    //DllImport("__Internal")
+    //]
+    //private
+    //static
+    //extern
+    //void
+    //RedirectTo
+    //();
+    //// Import the javascript function that redirects to another URL
+    //[
+    //DllImport("__Internal")
+    //]
+    //private
+    //static
+    //extern
+    //void
+    //StartGameEvent
+    //();
+    //// Import the javascript function that redirects to another URL
+    //[
+    //DllImport("__Internal")
+    //]
+    //private
+    //static
+    //extern
+    //void
+    //StartLevelEvent
+    //(int level);
+    //// Import the javascript function that redirects to another URL
+    //[
+    //DllImport("__Internal")
+    //]
+    //private
+    //static
+    //extern
+    //void
+    //ReplayEvent
+    //();
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -100,4 +147,7 @@ public class UIButton : MonoBehaviour
 
         }
     }
+
+
+
 }

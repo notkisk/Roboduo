@@ -3560,7 +3560,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.073116, y: 101.623566}
-  m_SizeDelta: {x: 924.27, y: 924.27}
+  m_SizeDelta: {x: 955, y: 924.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1894884652
 MonoBehaviour:
@@ -4265,6 +4265,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1575426314, guid: 5a6336e7a7e2df14faa31f46b23da9d9, type: 3}
+      propertyPath: whatIsBlock.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 4006648967051550312, guid: 5a6336e7a7e2df14faa31f46b23da9d9, type: 3}
       propertyPath: m_Enabled
       value: 0

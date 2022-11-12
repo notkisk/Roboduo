@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1140153792, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_Size.x
-      value: 1.0248992
+      value: 0.8908695
       objectReference: {fileID: 0}
     - target: {fileID: 1140153792, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_Size.y
-      value: 0.82346416
+      value: 0.8234755
       objectReference: {fileID: 0}
     - target: {fileID: 1147774659, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_Enabled
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 985978162509657986, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 985978162509657986, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,8 +93,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 985978162509658108, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8675983
+      objectReference: {fileID: 0}
+    - target: {fileID: 985978162509658108, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25960153
+      objectReference: {fileID: 0}
+    - target: {fileID: 985978162509658108, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0026568174
+      objectReference: {fileID: 0}
+    - target: {fileID: 985978162509658108, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0063911676
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 985978162509658108, guid: 6889890402cb32a49afcbf8d436b2ec4, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -178,3 +190,6 @@ MonoBehaviour:
   minimumDistance: 1.55
   elevators:
   - {fileID: 0}
+  blockStates:
+  - {fileID: 1658204461, guid: 9fc259055d1a0434fa7af14b98289bc5, type: 3}
+  - {fileID: -1162330293, guid: 493ef7cc0ca4c1d43b94426d80e62509, type: 3}

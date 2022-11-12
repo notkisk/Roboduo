@@ -35,6 +35,7 @@ public class PlayerSwitchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (roboController == null || geraltController == null) return;
         if (roboController!=null&& geraltController!=null)
         {
             if (Input.GetKeyDown(KeyCode.C))
@@ -72,15 +73,21 @@ public class PlayerSwitchController : MonoBehaviour
         }
         if (activePlayer==null)
         {
-            if (roboController.gameObject.activeInHierarchy)
-            {
-                activePlayer = roboController;
-            }
-            else if (geraltController.gameObject.activeInHierarchy)
-            {
-                activePlayer = geraltController;
+            
+                if (roboController.gameObject.activeInHierarchy)
+                {
+                    activePlayer = roboController;
+                }
+            
+          
+                if (geraltController.gameObject.activeInHierarchy)
+                {
+                    activePlayer = geraltController;
 
-            }
+                }
+            
+           
+             
         }
       
         //if (activePlayer==null)

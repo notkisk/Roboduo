@@ -128,7 +128,7 @@ Transform:
   m_Children:
   - {fileID: 6846815652525399891}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &9047848736292490134
 Rigidbody2D:
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myController: {fileID: 9047848736314651738}
+  stupedWayToKnowIfWeWon: 0
 --- !u!114 &1575426314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,10 +201,10 @@ MonoBehaviour:
   headCheckLength: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 704
+    m_Bits: 2752
   whatIsBlock:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 2176
   deathEffect: {fileID: 7299078706656502868, guid: 535e7abb398adb545b2b2b704dcf2e05, type: 3}
 --- !u!1 &9047848736314651742
 GameObject:
@@ -327,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8cf722f5e7ebe4baa9f95c6433c825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 0}
   maxMoveSpeed: 4
   _acceleration: 0.1
   _deacceleration: 0.035
@@ -335,7 +337,7 @@ MonoBehaviour:
   canMove: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 704
+    m_Bits: 2752
   footPosition: {fileID: 9047848735454445625}
   headPosition: {fileID: 1177562107157554289}
   jumpForce: 600

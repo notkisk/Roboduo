@@ -274,7 +274,7 @@ MonoBehaviour:
   canMove: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 704
+    m_Bits: 2752
   footPosition: {fileID: 3583981648768032758}
   headPosition: {fileID: 360720506}
   jumpForce: 400
@@ -410,8 +410,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.47601104}
-  m_Size: {x: 0.71914685, y: 0.9951819}
+  m_Offset: {x: 0.026512444, y: -0.47601104}
+  m_Size: {x: 0.80491984, y: 0.9951819}
   m_Direction: 0
 --- !u!114 &73277630
 MonoBehaviour:
@@ -450,5 +450,5 @@ MonoBehaviour:
     m_Bits: 704
   whatIsBlock:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   deathEffect: {fileID: 7299078706656502868, guid: 535e7abb398adb545b2b2b704dcf2e05, type: 3}

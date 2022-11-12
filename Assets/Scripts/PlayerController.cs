@@ -3,6 +3,9 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+
+    enum state { enabled,disabled };
+    state currentState;
     [Header("Movement")]
     [HideInInspector]public Rigidbody2D _rb;
     public float maxMoveSpeed;
@@ -73,6 +76,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (currentState == state.disabled)
+        {
+            _rb.velocity = Vector2.zero;
+
+        }
         //transform.parent.position = transform.TransformVector(this.transform.position);
         _horizontalInput =Input.GetAxisRaw("Horizontal");
         isGrounded = Grounded();
@@ -275,6 +283,8 @@ public class PlayerController : MonoBehaviour
 
     public void Disable()
     {
+        currentState = state.disabled;
+
         //GetComponentInParent<PlayerSwitchController>().enabled = false;
         _rb.velocity = Vector2.zero;
         _anim.SetBool("isWalking",false);
@@ -301,7 +311,7 @@ public class PlayerController : MonoBehaviour
     public void Enable()
     {
         _rb.velocity = Vector2.zero;
-        
+        currentState = state.enabled;
         //GetComponentInParent<PlayerSwitchController>().enabled = true;
         _parentBody.bodyType = RigidbodyType2D.Dynamic;
         _myBoxCollider.enabled = true;

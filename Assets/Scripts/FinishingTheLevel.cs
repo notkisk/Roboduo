@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+//using System.Runtime.InteropServices;
 
 public class FinishingTheLevel : MonoBehaviour
 {
@@ -31,13 +32,14 @@ public class FinishingTheLevel : MonoBehaviour
             {
                 if (Vector2.Distance(this.transform.position, finishDoor.transform.position) < 1f)
                 {
-                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    if (Input.GetKeyDown(KeyCode.DownArrow)||Input.GetKeyDown(KeyCode.S))
                     {
                         if (FindObjectOfType<PlayerSwitchController>().activePlayer == myController)
                         {
                             //stupedWayToKnowIfWeWon++;
                             tester++;
                             FindObjectOfType<AudioManager>().Play("Finish");
+
                             if (this.gameObject.CompareTag("Robo"))
                             {
                                 if (_robo != null && _geralt != null)
@@ -72,13 +74,15 @@ public class FinishingTheLevel : MonoBehaviour
         {
             if (Vector2.Distance(this.transform.position, finishDoor.transform.position) < 1f)
             {
-                if (Input.GetKeyDown(KeyCode.DownArrow))
+                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
                 {
                     if (FindObjectOfType<PlayerSwitchController>().activePlayer == myController)
                     {
                         tester++;
 
                         FindObjectOfType<AudioManager>().Play("Finish");
+
+
                         if (this.gameObject.CompareTag("Robo"))
                         {
                             if (_robo != null && _geralt != null)
@@ -111,8 +115,6 @@ public class FinishingTheLevel : MonoBehaviour
             }
         }
        
-       
-        
     }
 
    void ReloadScene()

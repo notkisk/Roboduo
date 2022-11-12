@@ -92,6 +92,11 @@ public class Block : MonoBehaviour
                     _rb.mass = 1800f;
                 }
             }
+            else if(_geralt ==null)
+            {
+                _rb.mass = 1800f;
+
+            }
 
         }
 

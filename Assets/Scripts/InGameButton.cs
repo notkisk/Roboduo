@@ -10,7 +10,9 @@ public class InGameButton : MonoBehaviour
 
     bool blockAwayFromButton;
 
-    GameObject /*_robo,*/ _geralt, _blocks, _Eblock;
+    GameObject /*_robo,*/ _geralt;
+    GameObject[] _blocks;
+    GameObject[] _Eblock;
 
     void Start()
     {
@@ -28,8 +30,8 @@ public class InGameButton : MonoBehaviour
             _geralt = GameObject.FindGameObjectWithTag("Geralt");
 
         }
-        _blocks = GameObject.FindGameObjectWithTag("Block");
-        _Eblock = GameObject.FindGameObjectWithTag("ElectricityBlock");
+        _blocks = GameObject.FindGameObjectsWithTag("Block");
+        _Eblock = GameObject.FindGameObjectsWithTag("ElectricityBlock");
 
         //for (int i = 0; i < _blocks.Length; i++)
         //{
@@ -49,7 +51,7 @@ public class InGameButton : MonoBehaviour
         //}
         if (_geralt!=null&&_blocks!=null&& _Eblock!=null)
         {
-            if (Vector2.Distance(this.transform.position, _geralt.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _blocks.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, _Eblock.transform.position) > triggerMinDistance)
+            if (Vector2.Distance(this.transform.position, _geralt.transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, GetClosestBlock(_blocks).transform.position) > triggerMinDistance && Vector2.Distance(this.transform.position, GetClosestBlock(_Eblock).transform.position) > triggerMinDistance)
             {
                 _myRenderer.sprite = sprites[0];
                 foreach (var gate in gates)
@@ -126,4 +128,22 @@ public class InGameButton : MonoBehaviour
     //    }
 
     //}
+
+
+    Transform GetClosestBlock(GameObject[] objects)
+    {
+        GameObject tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (GameObject t in objects)
+        {
+            float dist = Vector3.Distance(t.transform.position, currentPos);
+            if (dist < minDist)
+            {
+                tMin = t;
+                minDist = dist;
+            }
+        }
+        return tMin.transform;
+    }
 }

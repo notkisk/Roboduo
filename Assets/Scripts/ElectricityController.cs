@@ -49,7 +49,11 @@ public class ElectricityController : MonoBehaviour
     {
         //_collidingObject = CollidingObject();
           blocks = GameObject.FindGameObjectsWithTag("ElectricityBlock");
-         closestBlock= GetClosestBlock(blocks);
+        if (blocks.Length>0)
+        {
+            closestBlock = GetClosestBlock(blocks);
+
+        }
 
         if (Input.GetKeyDown(KeyCode.X) && !_anim.GetCurrentAnimatorStateInfo(0).IsName(ELECTRICITY_ANIMATION_NAME))
         {

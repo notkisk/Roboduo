@@ -10,6 +10,14 @@ public class ElectricityBlock : MonoBehaviour
 
     GameObject[] bases;
     GameObject _robo;
+
+    public Sprite[] blockStates;
+    SpriteRenderer _myRenderer;
+
+    private void Start()
+    {
+        _myRenderer = GetComponent<SpriteRenderer>();
+    }
     private void Update()
     {
         //Debug.Log($"isInTheRightPlace={isInTheRightPlace}");
@@ -33,19 +41,25 @@ public class ElectricityBlock : MonoBehaviour
         //add if statement fpr checking if we are in the right plce
         //trigger elevator
         //Debug.Log("Triggerd");
-        if (Vector2.Distance(this.transform.position, _robo.transform.position) < minimumDistance)
+        if (!elevators[0].isElevating)
         {
-            if (isInTheRightPlace)
+            if (Vector2.Distance(this.transform.position, _robo.transform.position) < minimumDistance)
             {
-                foreach (var elevator in elevators)
+                if (isInTheRightPlace)
                 {
-                    if (!elevator.isElevating)
+
+                    StartCoroutine(ChangeState());
+                    foreach (var elevator in elevators)
                     {
-                        elevator.Elevate();
+                        if (!elevator.isElevating)
+                        {
+                            elevator.Elevate();
+                        }
                     }
                 }
             }
         }
+        
         
        
     }
@@ -82,5 +96,14 @@ public class ElectricityBlock : MonoBehaviour
             }
         }
         return tMin.transform;
+    }
+
+    IEnumerator ChangeState()
+    {
+
+        _myRenderer.sprite = blockStates[1];
+        yield return new WaitForSeconds(elevators[0].elevateSpeed + elevators[0].delay);
+        _myRenderer.sprite = blockStates[0];
+
     }
 }

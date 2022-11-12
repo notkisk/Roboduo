@@ -24,6 +24,7 @@ public class FinalDestination : MonoBehaviour
     {
         _robo = GameObject.FindGameObjectWithTag("Robo");
         _geralt = GameObject.FindGameObjectWithTag("Geralt");
+        
         //if (_robo == null || _geralt == null && !hasReloaded && FindObjectOfType<FinishingTheLevel>().stupedWayToKnowIfWeWon < 1)
         //{
         //    hasReloaded = true;
@@ -38,12 +39,18 @@ public class FinalDestination : MonoBehaviour
                 {
                     hasWon = true;
                     FindObjectOfType<AudioManager>().Play("Victory");
-
+                   
                     Instantiate(confetti, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f), Quaternion.identity);
-                    StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+                    if (SceneManager.GetActiveScene().buildIndex !=18)
+                    {
+
+                        StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+
+                    }
                     if (SceneManager.GetActiveScene().buildIndex == 18)
                     {
                         StartCoroutine(FindObjectOfType<SceneController>().LoadScene(2f,0));
+
                     }
                     else
                     {
@@ -74,9 +81,13 @@ public class FinalDestination : MonoBehaviour
             {
                 hasWon = true;
                 FindObjectOfType<AudioManager>().Play("Victory");
-
+               
                 Instantiate(confetti, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f), Quaternion.identity);
-                StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+                if (SceneManager.GetActiveScene().buildIndex != 18)
+                {
+                    StartCoroutine(FindObjectOfType<SceneController>().LoadNextScene(1f, 1f));
+
+                }
                 if (SceneManager.GetActiveScene().buildIndex == 18)
                 {
                     StartCoroutine(FindObjectOfType<SceneController>().LoadScene(2f, 0));
@@ -93,15 +104,18 @@ public class FinalDestination : MonoBehaviour
             }
 
             if (_robo == null || _geralt == null && FindObjectOfType<FinishingTheLevel>().stupedWayToKnowIfWeWon < 1) return;
-
-            if (Vector2.Distance(this.transform.position, _robo.transform.position) <= minDistance || Vector2.Distance(this.transform.position, _geralt.transform.position) <= minDistance)
+            if (_robo!=null&&_geralt!=null)
             {
-                downArrowKey.SetActive(true);
+                if (Vector2.Distance(this.transform.position, _robo.transform.position) <= minDistance || Vector2.Distance(this.transform.position, _geralt.transform.position) <= minDistance)
+                {
+                    downArrowKey.SetActive(true);
+                }
+                else
+                {
+                    downArrowKey.SetActive(false);
+                }
             }
-            else
-            {
-                downArrowKey.SetActive(false);
-            }
+         
 
           
 
